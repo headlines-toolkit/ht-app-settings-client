@@ -31,12 +31,6 @@ abstract class HtAppSettingsClient {
   /// Persists the entire [DisplaySettings] object.
   Future<void> setDisplaySettings(DisplaySettings settings);
 
-  /// Provides a stream that emits the current [DisplaySettings] whenever they
-  /// change.
-  ///
-  /// The stream should emit the current settings immediately upon listening.
-  Stream<DisplaySettings> watchDisplaySettings();
-
   // --- Language ---
 
   /// Retrieves the currently saved application language code (ISO 639-1).
@@ -47,11 +41,6 @@ abstract class HtAppSettingsClient {
 
   /// Saves the selected application language code.
   Future<void> setLanguage(AppLanguage language);
-
-  /// Provides a stream that emits the current language code whenever it changes.
-  ///
-  /// The stream should emit the current language immediately upon listening.
-  Stream<AppLanguage> watchLanguage();
 
   // --- General ---
 
