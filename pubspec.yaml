@@ -1,4 +1,4 @@
-name: app_settings_client
+name: ht_app_settings_client
 description: ...
 repository: https://github.com/headlines-toolkit/ht-app-settings-client
 publish_to: none

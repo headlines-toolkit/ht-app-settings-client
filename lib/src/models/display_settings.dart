@@ -1,7 +1,7 @@
-import 'package:app_settings_client/src/models/app_accent_theme.dart';
-import 'package:app_settings_client/src/models/app_base_theme.dart';
-import 'package:app_settings_client/src/models/app_font_weight.dart';
-import 'package:app_settings_client/src/models/app_text_scale_factor.dart';
+import 'package:ht_app_settings_client/src/models/app_accent_theme.dart';
+import 'package:ht_app_settings_client/src/models/app_base_theme.dart';
+import 'package:ht_app_settings_client/src/models/app_font_weight.dart';
+import 'package:ht_app_settings_client/src/models/app_text_scale_factor.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 

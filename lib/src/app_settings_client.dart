@@ -2,10 +2,10 @@
 
 import 'dart:async';
 
-import 'package:app_settings_client/src/models/app_language.dart';
-import 'package:app_settings_client/src/models/display_settings.dart';
+import 'package:ht_app_settings_client/src/models/app_language.dart';
+import 'package:ht_app_settings_client/src/models/display_settings.dart';
 
-/// {@template app_settings_client}
+/// {@template ht_app_settings_client}
 /// Defines the interface for managing user-configurable application settings
 /// related to appearance and language.
 ///
@@ -14,9 +14,9 @@ import 'package:app_settings_client/src/models/display_settings.dart';
 /// (e.g., using shared_preferences, Hive, etc.) will handle the actual storage
 /// mechanism.
 /// {@endtemplate}
-abstract class AppSettingsClient {
-  /// {@macro app_settings_client}
-  const AppSettingsClient();
+abstract class HtAppSettingsClient {
+  /// {@macro ht_app_settings_client}
+  const HtAppSettingsClient();
 
   // --- Display Settings ---
 

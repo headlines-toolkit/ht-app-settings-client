@@ -1,4 +1,4 @@
-import 'package:app_settings_client/app_settings_client.dart';
+import 'package:ht_app_settings_client/ht_app_settings_client.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -69,10 +69,7 @@ void main() {
       });
 
       test('retains old values if null is provided', () {
-        expect(
-          createSubject().copyWith(),
-          equals(createSubject()),
-        );
+        expect(createSubject().copyWith(), equals(createSubject()));
       });
 
       test('replaces non-null values', () {
@@ -99,10 +96,7 @@ void main() {
 
     group('fromJson/toJson', () {
       test('works correctly', () {
-        expect(
-          DisplaySettings.fromJson(createJson()),
-          equals(createSubject()),
-        );
+        expect(DisplaySettings.fromJson(createJson()), equals(createSubject()));
       });
 
       test('handles different enum values', () {

@@ -1,4 +1,4 @@
-# app_settings_client
+# ht_app_settings_client
 
 ![coverage: 97](https://img.shields.io/badge/coverage-97-green)
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
@@ -8,12 +8,12 @@ A Dart package defining the interface for managing user-configurable application
 
 ## Description
 
-This package provides a project-agnostic, abstract interface (`AppSettingsClient`) and associated data models (`DisplaySettings`, `AppLanguage`, enums) for managing user-configurable application settings. It focuses on settings typically controlled directly by the user via a settings UI, such as:
+This package provides a project-agnostic, abstract interface (`HtAppSettingsClient`) and associated data models (`DisplaySettings`, `AppLanguage`, enums) for managing user-configurable application settings. It focuses on settings typically controlled directly by the user via a settings UI, such as:
 
 *   Display preferences (theme mode, accent color, font family, text scale, font weight)
 *   Language selection
 
-**Important:** This package defines the **contract (interface) only**. It does **not** include a concrete implementation for data persistence. A separate package (e.g., using `shared_preferences`, `hive`, or another storage mechanism) is required to implement the `AppSettingsClient` interface and handle the actual saving and loading of settings data.
+**Important:** This package defines the **contract (interface) only**. It does **not** include a concrete implementation for data persistence. A separate package (e.g., using `shared_preferences`, `hive`, or another storage mechanism) is required to implement the `HtAppSettingsClient` interface and handle the actual saving and loading of settings data.
 
 ## Getting Started
 
@@ -21,7 +21,7 @@ To use this interface in an implementation package or an application, add it to 
 
 ```yaml
 dependencies:
-  app_settings_client:
+  ht_app_settings_client:
     git:
       url: https://github.com/headlines-toolkit/ht-app-settings-client.git
 ```
@@ -29,14 +29,14 @@ dependencies:
 Then, import the library:
 
 ```dart
-import 'package:app_settings_client/app_settings_client.dart';
+import 'package:ht_app_settings_client/ht_app_settings_client.dart';
 ```
 
 ## Features
 
 This package exports the following core components:
 
-*   **`AppSettingsClient`**: The abstract interface defining methods for getting, setting, and watching settings (`getDisplaySettings`, `setDisplaySettings`, `watchDisplaySettings`, `getLanguage`, `setLanguage`, `watchLanguage`, `clearSettings`).
+*   **`HtAppSettingsClient`**: The abstract interface defining methods for getting, setting, and watching settings (`getDisplaySettings`, `setDisplaySettings`, `watchDisplaySettings`, `getLanguage`, `setLanguage`, `watchLanguage`, `clearSettings`).
 *   **`DisplaySettings`**: A model class grouping visual preferences:
     *   `baseTheme`: The base theme mode ([AppBaseTheme]).
     *   `accentTheme`: The selected accent color theme ([AppAccentTheme]).
@@ -48,7 +48,7 @@ This package exports the following core components:
 
 ## Usage
 
-Applications or other packages should depend on a **concrete implementation** of the `AppSettingsClient` interface provided by a separate package.
+Applications or other packages should depend on a **concrete implementation** of the `HtAppSettingsClient` interface provided by a separate package.
 
 This concrete instance would typically be initialized and provided to the application's widget tree or business logic layers using a dependency injection mechanism (like `provider`, `riverpod`, `get_it`, etc.).
 

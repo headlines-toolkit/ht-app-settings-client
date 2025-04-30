@@ -2,7 +2,7 @@
 import 'package:test/test.dart';
 
 void main() {
-  group('AppSettingsClient', () {
+  group('HtAppSettingsClient', () {
     // Tests for the abstract client interface itself are minimal.
     // Meaningful tests will be in the implementation package(s).
     test('completes', () {
