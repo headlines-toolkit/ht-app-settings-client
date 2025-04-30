@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:ht_app_settings_client/src/models/app_language.dart';
 import 'package:ht_app_settings_client/src/models/display_settings.dart';
+import 'package:ht_shared/ht_shared.dart';
 
 /// {@template ht_app_settings_client}
 /// Defines the interface for managing user-configurable application settings
@@ -24,11 +25,17 @@ abstract class HtAppSettingsClient {
   ///
   /// Implementations should return a default [DisplaySettings] object if no
   /// settings have been previously saved.
+  ///
+  /// Throws [HtHttpException] or its subtypes on failure.
+  /// Can also throw other exceptions during serialization.
   Future<DisplaySettings> getDisplaySettings();
 
   /// Saves the provided display settings.
   ///
   /// Persists the entire [DisplaySettings] object.
+  ///
+  /// Throws [HtHttpException] or its subtypes on failure.
+  /// Can also throw other exceptions during serialization.
   Future<void> setDisplaySettings(DisplaySettings settings);
 
   // --- Language ---
@@ -37,9 +44,15 @@ abstract class HtAppSettingsClient {
   ///
   /// Implementations should return a default language code (e.g., 'en') if no
   /// language has been previously saved.
+  ///
+  /// Throws [HtHttpException] or its subtypes on failure.
+  /// Can also throw other exceptions during serialization.
   Future<AppLanguage> getLanguage();
 
   /// Saves the selected application language code.
+  ///
+  /// Throws [HtHttpException] or its subtypes on failure.
+  /// Can also throw other exceptions during serialization.
   Future<void> setLanguage(AppLanguage language);
 
   // --- General ---
@@ -49,5 +62,8 @@ abstract class HtAppSettingsClient {
   /// Resets all stored preferences to their default state. Useful for logout
   /// or reset functionality. Implementations should ensure subsequent `get` calls
   /// return the default values.
+  ///
+  /// Throws [HtHttpException] or its subtypes on failure.
+  /// Can also throw other exceptions during serialization.
   Future<void> clearSettings();
 }
