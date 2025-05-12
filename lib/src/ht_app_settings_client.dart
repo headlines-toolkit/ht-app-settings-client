@@ -21,49 +21,62 @@ abstract class HtAppSettingsClient {
 
   // --- Display Settings ---
 
-  /// Retrieves the currently saved display settings.
+  /// Retrieves the currently saved display settings for the specified user.
   ///
+  /// - [userId]: The unique identifier of the user.
   /// Implementations should return a default [DisplaySettings] object if no
   /// settings have been previously saved.
   ///
   /// Throws [HtHttpException] or its subtypes on failure.
   /// Can also throw other exceptions during serialization.
-  Future<DisplaySettings> getDisplaySettings();
+  Future<DisplaySettings> getDisplaySettings({required String userId});
 
-  /// Saves the provided display settings.
+  /// Saves the provided display settings for the specified user.
   ///
+  /// - [userId]: The unique identifier of the user.
+  /// - [settings]: The display settings to save.
   /// Persists the entire [DisplaySettings] object.
   ///
   /// Throws [HtHttpException] or its subtypes on failure.
   /// Can also throw other exceptions during serialization.
-  Future<void> setDisplaySettings(DisplaySettings settings);
+  Future<void> setDisplaySettings({
+    required String userId,
+    required DisplaySettings settings,
+  });
 
   // --- Language ---
 
-  /// Retrieves the currently saved application language code (ISO 639-1).
+  /// Retrieves the currently saved application language code (ISO 639-1) for the specified user.
   ///
+  /// - [userId]: The unique identifier of the user.
   /// Implementations should return a default language code (e.g., 'en') if no
   /// language has been previously saved.
   ///
   /// Throws [HtHttpException] or its subtypes on failure.
   /// Can also throw other exceptions during serialization.
-  Future<AppLanguage> getLanguage();
+  Future<AppLanguage> getLanguage({required String userId});
 
-  /// Saves the selected application language code.
+  /// Saves the selected application language code for the specified user.
   ///
+  /// - [userId]: The unique identifier of the user.
+  /// - [language]: The language code to save.
   /// Throws [HtHttpException] or its subtypes on failure.
   /// Can also throw other exceptions during serialization.
-  Future<void> setLanguage(AppLanguage language);
+  Future<void> setLanguage({
+    required String userId,
+    required AppLanguage language,
+  });
 
   // --- General ---
 
-  /// Clears all settings managed by this client.
+  /// Clears all settings managed by this client for the specified user.
   ///
+  /// - [userId]: The unique identifier of the user.
   /// Resets all stored preferences to their default state. Useful for logout
   /// or reset functionality. Implementations should ensure subsequent `get` calls
   /// return the default values.
   ///
   /// Throws [HtHttpException] or its subtypes on failure.
   /// Can also throw other exceptions during serialization.
-  Future<void> clearSettings();
+  Future<void> clearSettings({required String userId});
 }

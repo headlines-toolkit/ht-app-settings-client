@@ -36,7 +36,7 @@ import 'package:ht_app_settings_client/ht_app_settings_client.dart';
 
 This package exports the following core components:
 
-*   **`HtAppSettingsClient`**: The abstract interface defining methods for getting, setting, and clearing settings (`getDisplaySettings`, `setDisplaySettings`, `getLanguage`, `setLanguage`, `clearSettings`).
+*   **`HtAppSettingsClient`**: The abstract interface defining methods for getting, setting, and clearing settings for a specific user (`getDisplaySettings`, `setDisplaySettings`, `getLanguage`, `setLanguage`, `clearSettings`).
 *   **`DisplaySettings`**: A model class grouping visual preferences:
     *   `baseTheme`: The base theme mode ([AppBaseTheme]).
     *   `accentTheme`: The selected accent color theme ([AppAccentTheme]).
@@ -59,14 +59,14 @@ This concrete instance would typically be initialized and provided to the applic
 // obtained via dependency injection.
 
 // Get the current display settings
-final currentDisplaySettings = await myAppSettingsClient.getDisplaySettings();
+final currentDisplaySettings = await myAppSettingsClient.getDisplaySettings(userId: 'user-id-here');
 print('Current base theme: ${currentDisplaySettings.baseTheme}');
 
 // Set a new language preference
-await myAppSettingsClient.setLanguage('ar');
+await myAppSettingsClient.setLanguage(userId: 'user-id-here', language: 'ar');
 
 // Clear all settings
-await myAppSettingsClient.clearSettings();
+await myAppSettingsClient.clearSettings(userId: 'user-id-here');
 ```
 
 Refer to the documentation of the specific implementation package for details on its setup and usage.
